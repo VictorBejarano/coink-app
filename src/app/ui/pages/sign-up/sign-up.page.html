@@ -11,6 +11,9 @@
 <ion-content class="ion-padding">
   <h1>Page Two</h1>
   <div>
-    <app-keyboard-phone></app-keyboard-phone>
+    <form [formGroup]="form">
+      <ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
+      <app-keyboard-phone formControlName="phone" (submit)="onSubmit()" [disabledSubmitBtn]="!form.get('phone').valid"></app-keyboard-phone>
+    </form>
   </div>
 </ion-content>

@@ -1,10 +1,11 @@
 <div class="keyboad-container">
-  <app-number-button *ngFor="let num of [1,2,3,4,5,6,7,8,9]" [value]="num"></app-number-button>
-  <ion-button fill="clear">
+  <app-number-button *ngFor="let digit of [1,2,3,4,5,6,7,8,9]" [value]="digit"
+    (click)="addDigit(digit.toString())"></app-number-button>
+  <ion-button fill="clear" (click)="deleteDigit()">
     <img class="backspace-btn" src="assets/icons/backspace.svg" alt="backspace-btn" />
   </ion-button>
-  <app-number-button [value]="0"></app-number-button>
-  <ion-fab-button>
+  <app-number-button [value]="'0'" (click)="addDigit('0')"></app-number-button>
+  <ion-fab-button (click)="onSubmit()" [disabled]="disabledSubmitBtn">
     <img class="check-btn" src="assets/icons/check.svg" alt="backspace-btn" />
   </ion-fab-button>
 </div>

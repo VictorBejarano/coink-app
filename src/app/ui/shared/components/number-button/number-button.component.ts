@@ -6,12 +6,12 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./number-button.component.scss"],
 })
 export class NumberButtonComponent implements OnInit {
-  private _value: number;
+  private _value: string;
   @Input() set value(val: string | number) {
     if (typeof val === "string") {
-      this._value = Number(val);
-    } else {
       this._value = val;
+    } else {
+      this._value = val.toString();
     }
   }
 
