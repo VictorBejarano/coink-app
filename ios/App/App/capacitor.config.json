@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.demo.pg.cap.ng",
-	"appName": "Photo Gallery Cap Ng",
+	"appId": "victorbejarano.coinkapp.com",
+	"appName": "Coink App",
 	"bundledWebRuntime": false,
 	"npmClient": "npm",
 	"webDir": "www",
