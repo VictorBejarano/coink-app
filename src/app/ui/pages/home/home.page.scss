@@ -1,0 +1,23 @@
+.home-container {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    height: 100vh;
+    padding: 25px;
+  }
+  .home-logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .home-logo p {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--ion-color-primary);
+  }
+  .home-buttons {
+    display: inherit;
+    row-gap: 8px;
+  }
+  

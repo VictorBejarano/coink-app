@@ -12,7 +12,7 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.router.navigate(["login"]);
+    this.router.navigate(["home"]);
     SplashScreen.hide();
   }
 }
