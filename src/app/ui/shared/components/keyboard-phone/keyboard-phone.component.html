@@ -1,0 +1,10 @@
+<div class="keyboad-container">
+  <app-number-button *ngFor="let num of [1,2,3,4,5,6,7,8,9]" [value]="num"></app-number-button>
+  <ion-button fill="clear">
+    <img class="backspace-btn" src="assets/icons/backspace.svg" alt="backspace-btn" />
+  </ion-button>
+  <app-number-button [value]="0"></app-number-button>
+  <ion-fab-button>
+    <img class="check-btn" src="assets/icons/check.svg" alt="backspace-btn" />
+  </ion-fab-button>
+</div>

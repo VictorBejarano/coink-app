@@ -1,16 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-secondary-button',
-  templateUrl: './secondary-button.component.html',
-  styleUrls: ['./secondary-button.component.scss'],
+  selector: "app-secondary-button[title]",
+  templateUrl: "./secondary-button.component.html",
+  styleUrls: ["./secondary-button.component.scss"],
 })
-export class SecondaryButtonComponent implements OnInit {
-
+export class SecondaryButtonComponent {
   @Input() public title: string;
+  @Output() public click = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit() {}
-
+  public onClick() {
+    this.click.emit();
+  }
 }
