@@ -1,0 +1,60 @@
+.main {
+  padding: 0 1.5em 1.5em 1.5em;
+}
+.logo-message {
+  font-family: "AvenirLTStd-Roman", sans-serif;
+  font-size: 1em;
+  color: #757575;
+  margin: 0;
+}
+.logo-title {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 1em;
+  color: var(--ion-color-secondary);
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+.logo-container {
+  display: grid;
+  grid-template-columns: 4.5em auto;
+  column-gap: 1.5em;
+  padding: 2.2em 0 1.5em 0;
+  margin-bottom: 2em;
+  border-bottom: 0.15em solid var(--ion-color-primary);
+  align-items: center;
+}
+.logo-police {
+  width: 4.5em;
+}
+.terms {
+  margin-bottom: 2.5em;
+}
+.terms-title {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 1em;
+  color: var(--ion-color-secondary);
+}
+.terms-content {
+  font-family: "AvenirLTStd-Roman", sans-serif;
+  color: #323232;
+  font-size: 0.875em;
+}
+ion-checkbox {
+  --size: 1em;
+  --checkmark-color: white;
+  font-family: "AvenirLTStd-Roman", sans-serif;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+}
+
+ion-checkbox::part(container) {
+  border-radius: 0.1em;
+}
+.read-contract {
+  font-family: "AvenirLTStd-Black", sans-serif;
+  font-size: 1em;
+  color: var(--ion-color-secondary);
+  text-decoration: underline;
+  
+}

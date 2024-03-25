@@ -11,6 +11,7 @@ import { SharedModule } from "../../shared/shared.module";
 import { SignUpStepOneComponent } from "./components/sign-up-step-one/sign-up-step-one.component";
 import { StepperIndicatorComponent } from "./components/stepper-indicator/stepper-indicator.component";
 import { SignUpStepTwoComponent } from "./components/sign-up-step-two/sign-up-step-two.component";
+import { SignUpStepThreeComponent } from "./components/sign-up-step-three/sign-up-step-three.component";
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { SignUpStepTwoComponent } from "./components/sign-up-step-two/sign-up-st
     SignUpPage,
     SignUpStepOneComponent,
     SignUpStepTwoComponent,
+    SignUpStepThreeComponent,
     StepperIndicatorComponent,
   ],
 })
