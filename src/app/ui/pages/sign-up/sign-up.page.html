@@ -20,7 +20,7 @@
         <app-sign-up-step-one (next)="stepSelected = 2;"></app-sign-up-step-one>
       </ng-container>
       <ng-container *ngSwitchCase="2">
-        <app-sign-up-step-two></app-sign-up-step-two>
+        <app-sign-up-step-two (next)="stepSelected = 3;"></app-sign-up-step-two>
       </ng-container>
       <h3 *ngSwitchCase="3">FINALIZAR</h3>
     </ng-container>

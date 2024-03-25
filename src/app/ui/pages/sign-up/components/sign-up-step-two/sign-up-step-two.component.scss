@@ -25,8 +25,23 @@
   margin: 0;
   margin-bottom: 0.5em;
 }
+.data-form {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 1em;
+}
+.data-form p {
+  font-family: "Montserrat-Bold", sans-serif;
+  color: var(--ion-color-secondary);
+  font-size: 1em;
+}
 ::ng-deep .data-form {
   .input-wrapper {
     background-color: transparent;
+    .label-text-wrapper .label-text {
+      font-family: "AvenirLTStd-Medium", sans-serif;
+      font-size: 1em;
+      color: #aaaaaa;
+    }
   }
 }

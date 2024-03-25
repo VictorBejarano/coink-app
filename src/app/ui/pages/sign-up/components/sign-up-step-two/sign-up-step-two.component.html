@@ -11,10 +11,32 @@
     </div>
   </div>
   <form class="data-form" [formGroup]="form">
-    <ion-input formControlName="firstName" type="email" fill="outline" label="Email" labelPlacement="floating"
-      helperText="Enter a valid email" errorText="Invalid email" email></ion-input>
-
-    <ion-input type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Enter a valid email"
-      errorText="Invalid email" email></ion-input>
+    <p>Documento de identidad</p>
+    <ion-select label="Tipo de documento" label-placement="floating" fill="solid" interface="popover" #typeDoc>
+      <ion-select-option value="apple">Apple</ion-select-option>
+      <ion-select-option value="banana">Banana</ion-select-option>
+      <ion-select-option value="orange">Orange</ion-select-option>
+    </ion-select>
+    <ion-input type="text" fill="solid" formControlName="firstName" label="Número de documento"
+      labelPlacement="floating" errorText="Texto invalido"></ion-input>
+    <ion-input type="text" fill="solid" formControlName="firstName" label="Fecha de expedición del documento"
+      labelPlacement="floating" errorText="Texto invalido"></ion-input>
+    <ion-input type="text" fill="solid" formControlName="firstName" label="Fecha de nacimiento"
+      labelPlacement="floating" errorText="Texto invalido"></ion-input>
+    <ion-select label="Genero" label-placement="floating" fill="solid" interface="popover" #typeDoc>
+      <ion-select-option value="apple">Apple</ion-select-option>
+      <ion-select-option value="banana">Banana</ion-select-option>
+      <ion-select-option value="orange">Orange</ion-select-option>
+    </ion-select>
+    <p>Configura tu cuenta</p>
+    <ion-input type="email" fill="solid" formControlName="firstName" label="Correo electrónico"
+      labelPlacement="floating" errorText="Invalid email" email></ion-input>
+    <ion-input type="email" fill="solid" formControlName="firstName" label="Confirmar correo electrónico"
+      labelPlacement="floating" errorText="Invalid email" email></ion-input>
+    <ion-input type="text" fill="solid" formControlName="firstName" label="PIN de seguridad" labelPlacement="floating"
+      errorText="Texto invalido"></ion-input>
+    <ion-input type="text" fill="solid" formControlName="firstName" label="Confirmar PIN de seguridad"
+      labelPlacement="floating" errorText="Texto invalido"></ion-input>
+      <app-primary-button [title]="'SIGUIENTE'" (click)="onSubmit()"></app-primary-button>
   </form>
 </div>
