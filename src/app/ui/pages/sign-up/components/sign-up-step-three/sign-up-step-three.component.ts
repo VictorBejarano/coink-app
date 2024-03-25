@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-sign-up-step-three",
@@ -6,9 +7,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./sign-up-step-three.component.scss"],
 })
 export class SignUpStepThreeComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  onSubmit() {}
+  onSubmit() {
+    this.router.navigate(["dashboard"]);
+  }
 }

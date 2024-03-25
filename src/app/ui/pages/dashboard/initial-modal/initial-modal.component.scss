@@ -1,0 +1,36 @@
+::ng-deep ion-modal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+.modal-container {
+  width: 17em;
+  padding: 3em 1.5em 1.5em 1.5em;
+  display: grid;
+  grid-template-columns: auto;
+  justify-items: center;
+  row-gap: 2em;
+  img {
+    width: 6.25em;
+  }
+  div .title {
+    font-family: "Montserrat-Bold", sans-serif;
+    font-size: 1.25em;
+    color: var(--ion-color-secondary);
+    margin-bottom: 0.75em;
+  }
+  div .description {
+    font-family: "AvenirLTStd-Roman", sans-serif;
+    font-size: 1em;
+    color: #212121;
+  }
+  div p {
+    text-align: center;
+    margin: 0;
+  }
+}
+app-primary-button {
+  width: 100%;
+}
