@@ -1,0 +1,16 @@
+.spinner {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-color: #00000039;
+}
+
+ion-spinner {
+  width: 4em;
+  height: 4em;
+  --color: var(--ion-color-primary);
+}
