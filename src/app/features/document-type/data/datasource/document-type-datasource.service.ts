@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { DocumentTypeRepository } from "../../domain/repositories/document-type.repository";
 import { DocumentType } from "../../domain/entities/document-type.model";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 /**
  * Fuente de datos de tipos de documento.
  */

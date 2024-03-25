@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { GenderRepository } from "../../domain/repositories/gender.repository";
 import { Gender } from "../../domain/entities/gender.model";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 /**
  * Fuente de datos de generos.
  */

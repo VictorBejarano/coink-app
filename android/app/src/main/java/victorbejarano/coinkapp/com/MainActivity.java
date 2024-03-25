@@ -1,4 +1,4 @@
-package io.ionic.demo.pg.cap.ng;
+package victorbejarano.coinkapp.com;
 
 import com.getcapacitor.BridgeActivity;
 
