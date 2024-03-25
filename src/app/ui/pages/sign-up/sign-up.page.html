@@ -5,14 +5,26 @@
         <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <h3>NÚMERO CELULAR</h3>
-    <app-stepper-indicator [step]="1"></app-stepper-indicator>
+    <ng-container [ngSwitch]="stepSelected">
+      <h3 *ngSwitchCase="1">NÚMERO CELULAR</h3>
+      <h3 *ngSwitchCase="2">DATOS CUENTA</h3>
+      <h3 *ngSwitchCase="3">FINALIZAR</h3>
+    </ng-container>
+    <app-stepper-indicator [step]="stepSelected"></app-stepper-indicator>
   </div>
 </ion-header>
 <ion-content>
   <div>
+    <ng-container [ngSwitch]="stepSelected">
+      <ng-container *ngSwitchCase="1">
+        <app-sign-up-step-one (next)="stepSelected = 2;"></app-sign-up-step-one>
+      </ng-container>
+      <ng-container *ngSwitchCase="2">
+        <app-sign-up-step-two></app-sign-up-step-two>
+      </ng-container>
+      <h3 *ngSwitchCase="3">FINALIZAR</h3>
+    </ng-container>
     <ng-container>
-      <app-sign-up-step-one></app-sign-up-step-one>
     </ng-container>
   </div>
 </ion-content>

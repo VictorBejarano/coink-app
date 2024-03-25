@@ -26,21 +26,18 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @font-face {
-  font-family: "Montserrat";
-  font-weight: bold;
+  font-family: "Montserrat-Bold";
   src: url("./assets/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Montserrat";
-  font-weight: 600; /* Peso de la fuente para semibold */
+  font-family: "Montserrat-Semibold";
   src: url("./assets/fonts/Montserrat/Montserrat-SemiBold.ttf")
     format("truetype");
 }
 
 @font-face {
-  font-family: "Montserrat";
-  font-weight: 500; /* Peso de la fuente para medium */
+  font-family: "Montserrat-Medium";
   src: url("./assets/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
 }
 
@@ -74,7 +71,7 @@
 }
 
 * {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat-Medium", sans-serif;
   font-size: 16px;
 }
 

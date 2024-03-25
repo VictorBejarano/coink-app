@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="logo-container">
+    <img class="logo-empty" src="assets/images/logo-empty.svg" alt="logo-empty">
+    <div>
+      <p class="logo-title">
+        ¿CU&Aacute;LES SON TUS DATOS?
+      </p>
+      <p class="logo-message">
+        Ahora necesitamos saber algunos datos tuyos
+      </p>
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <ion-input formControlName="firstName" type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Enter a valid email"
+      errorText="Invalid email" email></ion-input>
+  </form>
+</div>

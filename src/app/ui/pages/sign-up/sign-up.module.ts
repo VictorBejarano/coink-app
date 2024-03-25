@@ -10,6 +10,7 @@ import { SignUpPage } from "./sign-up.page";
 import { SharedModule } from "../../shared/shared.module";
 import { SignUpStepOneComponent } from "./components/sign-up-step-one/sign-up-step-one.component";
 import { StepperIndicatorComponent } from "./components/stepper-indicator/stepper-indicator.component";
+import { SignUpStepTwoComponent } from "./components/sign-up-step-two/sign-up-step-two.component";
 
 @NgModule({
   imports: [
@@ -20,6 +21,11 @@ import { StepperIndicatorComponent } from "./components/stepper-indicator/steppe
     SharedModule,
     ReactiveFormsModule,
   ],
-  declarations: [SignUpPage, SignUpStepOneComponent, StepperIndicatorComponent],
+  declarations: [
+    SignUpPage,
+    SignUpStepOneComponent,
+    SignUpStepTwoComponent,
+    StepperIndicatorComponent,
+  ],
 })
 export class SignUpPageModule {}

@@ -7,12 +7,11 @@ import { NavController } from "@ionic/angular";
   styleUrls: ["./sign-up.page.scss"],
 })
 export class SignUpPage implements OnInit {
-  constructor(
-    private navCtrl: NavController,
-  ) {
+  public stepSelected: number;
+  constructor(private navCtrl: NavController) {
+    this.stepSelected = 1;
   }
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   goBack() {
     this.navCtrl.back();

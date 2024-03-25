@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./sign-up-step-one.component.scss"],
 })
 export class SignUpStepOneComponent implements OnInit {
+  @Output() next = new EventEmitter();
   form: FormGroup;
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
@@ -19,5 +20,7 @@ export class SignUpStepOneComponent implements OnInit {
       this.form.get("phone").setValue(data);
     });
   }
-  onSubmit() {}
+  onSubmit() {
+    this.next.emit();
+  }
 }

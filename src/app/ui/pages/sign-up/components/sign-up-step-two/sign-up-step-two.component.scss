@@ -1,0 +1,27 @@
+.main {
+  padding: 0 1.5em 1.5em 1.5em;
+}
+.logo-container {
+  display: grid;
+  grid-template-columns: 4.5em auto;
+  column-gap: 1.5em;
+  padding: 3.625em 0 1.5em 0;
+  margin-bottom: 2em;
+  border-bottom: 0.15em solid var(--ion-color-primary);
+}
+.logo-message {
+  font-family: "AvenirLTStd-Roman", sans-serif;
+  font-size: 1em;
+  color: #757575;
+  margin: 0;
+}
+.logo-empty {
+  width: 4.5em;
+}
+.logo-title {
+  font-family: "Montserrat-Bold", sans-serif;
+  font-size: 1em;
+  color: var(--ion-color-secondary);
+  margin: 0;
+  margin-bottom: 0.5em;
+}

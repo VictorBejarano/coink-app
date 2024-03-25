@@ -4,11 +4,14 @@
   display: grid;
   grid-template-rows: 3.625em auto;
   justify-items: center;
-  -webkit-box-shadow: 0px 5px 10px 0px #0000001A;
-  -moz-box-shadow: 0px 5px 10px 0px #0000001A;
-  box-shadow: 0px 5px 10px 0px #0000001A;
+  -webkit-box-shadow: 0px 5px 10px 0px #0000001a;
+  -moz-box-shadow: 0px 5px 10px 0px #0000001a;
+  box-shadow: 0px 5px 10px 0px #0000001a;
   h3 {
+    font-family: "Montserrat-Bold", sans-serif;
     text-align: center;
+    font-size: 1em;
+    color: var(--ion-color-secondary);
   }
   ion-buttons {
     position: absolute;
