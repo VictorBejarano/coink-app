@@ -1,19 +1,19 @@
 <ion-header>
-  <ion-toolbar>
+  <div class="sign-up-toolbar">
     <ion-buttons slot="start">
       <ion-button (click)="goBack()">
         <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>NÚMERO CELULAR</ion-title>
-  </ion-toolbar>
+    <h3>NÚMERO CELULAR</h3>
+    <app-stepper-indicator [step]="1"></app-stepper-indicator>
+  </div>
 </ion-header>
-<ion-content class="ion-padding">
-  <h1>Page Two</h1>
+<ion-content>
   <div>
-    <form [formGroup]="form">
-      <ion-input label="Outline input" label-placement="floating" fill="outline" placeholder="Enter text"></ion-input>
-      <app-keyboard-phone formControlName="phone" (submit)="onSubmit()" [disabledSubmitBtn]="!form.get('phone').valid"></app-keyboard-phone>
-    </form>
+    <ng-container>
+      <app-sign-up-step-one></app-sign-up-step-one>
+    </ng-container>
   </div>
 </ion-content>
+<!--  -->

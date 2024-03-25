@@ -1,0 +1,28 @@
+.sign-up-toolbar {
+  position: relative;
+  height: 5.25em;
+  display: grid;
+  grid-template-rows: 3.625em auto;
+  justify-items: center;
+  -webkit-box-shadow: 0px 5px 10px 0px #0000001A;
+  -moz-box-shadow: 0px 5px 10px 0px #0000001A;
+  box-shadow: 0px 5px 10px 0px #0000001A;
+  h3 {
+    text-align: center;
+  }
+  ion-buttons {
+    position: absolute;
+    top: 0.75em;
+    left: 0.25em;
+  }
+}
+
+.title-nav {
+  width: 100%;
+  display: inherit;
+  grid-template-columns: auto 1fr;
+}
+
+app-stepper-indicator {
+  width: 11.75em;
+}

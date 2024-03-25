@@ -1,0 +1,15 @@
+<div class="main">
+  <div class="logo-container">
+    <img class="logo-empty" src="assets/images/logo-empty.svg" alt="logo-empty">
+    <p>
+      Para comenzar, por favor<br />ingresa <span>tu número celular</span>.
+    </p>
+  </div>
+  <form [formGroup]="form">
+    <app-input-phone formControlName="phone"></app-input-phone>
+    <div class="separator"></div>
+    <app-keyboard-phone formControlName="keyboard" (submit)="onSubmit()"
+      [disabledSubmitBtn]="!form.get('keyboard').valid"></app-keyboard-phone>
+  </form>
+</div>
+

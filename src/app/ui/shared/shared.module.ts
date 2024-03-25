@@ -5,6 +5,7 @@ import { IonicModule } from "@ionic/angular";
 import { SecondaryButtonComponent } from "./components/secondary-button/secondary-button.component";
 import { KeyboardPhoneComponent } from "./components/keyboard-phone/keyboard-phone.component";
 import { NumberButtonComponent } from "./components/number-button/number-button.component";
+import { InputPhoneComponent } from "./components/input-phone/input-phone.component";
 
 @NgModule({
   declarations: [
@@ -12,12 +13,14 @@ import { NumberButtonComponent } from "./components/number-button/number-button.
     SecondaryButtonComponent,
     KeyboardPhoneComponent,
     NumberButtonComponent,
+    InputPhoneComponent,
   ],
   imports: [IonicModule, CommonModule],
   exports: [
     PrimaryButtonComponent,
     SecondaryButtonComponent,
     KeyboardPhoneComponent,
+    InputPhoneComponent,
   ],
 })
 export class SharedModule {}

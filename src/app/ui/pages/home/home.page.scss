@@ -1,27 +1,26 @@
 .home-container {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    height: 100vh;
-    padding: 1.5em;
-  }
-  .home-logo {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
-  .home-logo img {
-    width: 10em;
-  }
-  .home-logo p {
-    padding-top: 1em;
-    font-size: 1.125em;
-    font-weight: bold;
-    text-align: center;
-    color: var(--ion-color-primary);
-  }
-  .home-buttons {
-    display: inherit;
-    row-gap: 0.5em;
-  }
-  
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+  padding: 1.5em;
+}
+.home-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-logo img {
+  width: 10em;
+}
+.home-logo p {
+  padding-top: 1em;
+  font-size: 1.125em;
+  font-weight: bold;
+  text-align: center;
+  color: var(--ion-color-primary);
+}
+.home-buttons {
+  display: inherit;
+  row-gap: 0.5em;
+}
