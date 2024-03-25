@@ -10,8 +10,11 @@
       </p>
     </div>
   </div>
-  <form [formGroup]="form">
-    <ion-input formControlName="firstName" type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Enter a valid email"
+  <form class="data-form" [formGroup]="form">
+    <ion-input formControlName="firstName" type="email" fill="outline" label="Email" labelPlacement="floating"
+      helperText="Enter a valid email" errorText="Invalid email" email></ion-input>
+
+    <ion-input type="email" fill="solid" label="Email" labelPlacement="floating" helperText="Enter a valid email"
       errorText="Invalid email" email></ion-input>
   </form>
 </div>

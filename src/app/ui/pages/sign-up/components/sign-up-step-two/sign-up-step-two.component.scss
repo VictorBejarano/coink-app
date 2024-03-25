@@ -25,3 +25,8 @@
   margin: 0;
   margin-bottom: 0.5em;
 }
+::ng-deep .data-form {
+  .input-wrapper {
+    background-color: transparent;
+  }
+}

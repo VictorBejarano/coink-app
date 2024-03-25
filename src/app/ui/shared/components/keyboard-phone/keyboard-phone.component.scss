@@ -1,8 +1,8 @@
 .keyboad-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1em;
-//   justify-content: center;
+  column-gap: 1em;
+  column-gap: 0.25em;
   justify-items: center;
 }
 .backspace-btn {
