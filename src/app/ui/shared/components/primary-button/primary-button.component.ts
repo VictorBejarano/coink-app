@@ -7,9 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 })
 export class PrimaryButtonComponent {
   @Input() public title: string;
-  @Output() public click = new EventEmitter();
+  @Input() public disabled: boolean = false;
+  @Output() public onClick = new EventEmitter();
 
-  public onClick() {
-    this.click.emit();
+  public onSubmit() {
+    this.onClick.emit();
   }
 }

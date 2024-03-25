@@ -14,6 +14,7 @@ import { SignUpStepTwoComponent } from "./components/sign-up-step-two/sign-up-st
 import { SignUpStepThreeComponent } from "./components/sign-up-step-three/sign-up-step-three.component";
 import { DocumentTypeModule } from "src/app/features/document-type";
 import { GenderModule } from "src/app/features/gender";
+import { ValidatorsService } from "./components/sign-up-step-two/validators.service";
 
 @NgModule({
   imports: [
@@ -33,5 +34,6 @@ import { GenderModule } from "src/app/features/gender";
     SignUpStepThreeComponent,
     StepperIndicatorComponent,
   ],
+  providers: [ValidatorsService],
 })
 export class SignUpPageModule {}

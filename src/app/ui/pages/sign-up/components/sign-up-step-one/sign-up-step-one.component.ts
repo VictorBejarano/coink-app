@@ -12,7 +12,14 @@ export class SignUpStepOneComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       phone: ["", [Validators.required]],
-      keyboard: ["", [Validators.required]],
+      keyboard: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(7),
+          Validators.maxLength(10),
+        ],
+      ],
     });
   }
   ngOnInit() {

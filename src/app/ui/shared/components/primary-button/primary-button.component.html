@@ -1,3 +1,4 @@
-<ion-button shape="round" class="primary-button" color="primary" expand="full" (click)="onClick()">
+<ion-button shape="round" class="primary-button" color="primary" expand="full" [disabled]="disabled"
+    (click)="onSubmit()">
     {{ title }}
 </ion-button>

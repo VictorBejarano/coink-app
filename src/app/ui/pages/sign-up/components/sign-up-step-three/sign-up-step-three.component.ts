@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Component({
@@ -7,7 +8,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./sign-up-step-three.component.scss"],
 })
 export class SignUpStepThreeComponent implements OnInit {
-  constructor(private router: Router) {}
+  checkControl: FormControl<boolean>;
+  constructor(private router: Router) {
+    this.checkControl = new FormControl<boolean>(
+      false,
+      Validators.requiredTrue
+    );
+  }
 
   ngOnInit() {}
 

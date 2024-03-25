@@ -24,8 +24,10 @@
     </p>
   </div>
   <div>
-    <a class="read-contract" href="https://coink.com/terminos-y-condiciones-generales/" target="_system">Lee tu contracto</a>
-    <ion-checkbox labelPlacement="end">He leído ya acepto el contrato</ion-checkbox>
-    <app-primary-button [title]="'ACEPTAR'" (click)="onSubmit()"></app-primary-button>
+    <a class="read-contract" href="https://coink.com/terminos-y-condiciones-generales/" target="_system">Lee tu
+      contracto</a>
+    <ion-checkbox [formControl]="checkControl" labelPlacement="end">He leído ya acepto el contrato</ion-checkbox>
+    <app-primary-button [title]="'ACEPTAR'" (onClick)="onSubmit()"
+      [disabled]="!checkControl.valid"></app-primary-button>
   </div>
 </div>

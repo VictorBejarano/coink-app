@@ -8,11 +8,30 @@ import {
   ViewChild,
   ViewChildren,
 } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { IonSelect } from "@ionic/angular";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { AlertController, IonSelect } from "@ionic/angular";
 import { Observable } from "rxjs";
-import { DocumentTypeEntityService, DocumentType } from "src/app/features/document-type";
+import {
+  DocumentTypeEntityService,
+  DocumentType,
+} from "src/app/features/document-type";
 import { Gender, GenderEntityService } from "src/app/features/gender";
+import { User } from "./user.model";
+import { ValidatorsService } from "./validators.service";
+
+interface UserForm extends Omit<User, "phone"> {
+  confirmEmail: string;
+  confirmPassword: string;
+}
+
+type UserFormControl = {
+  [K in keyof UserForm]: FormControl<UserForm[K] | null>;
+};
 
 @Component({
   selector: "app-sign-up-step-two",
@@ -23,15 +42,37 @@ export class SignUpStepTwoComponent implements OnInit {
   @ViewChild("typeDoc") imgElement: any;
   @ViewChildren(IonSelect) viewChildren!: QueryList<IonSelect>;
   @Output() next = new EventEmitter();
-  form: FormGroup;
+  form: FormGroup<UserFormControl>;
+  hidePassword: boolean;
+  hideConfirmPassword: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
     private documentTypeEntityService: DocumentTypeEntityService,
-    private genderEntityService: GenderEntityService
+    private genderEntityService: GenderEntityService,
+    public validatorsService: ValidatorsService
   ) {
-    this.form = this.formBuilder.group({
-      firstName: [""],
+    this.hidePassword = true;
+    this.hideConfirmPassword = true;
+    this.form = new FormGroup<UserFormControl>({
+      password: new FormControl<string>(null, [
+        Validators.required,
+        Validators.maxLength(4),
+      ]),
+      email: new FormControl<string>(null, [Validators.required]),
+      documentType: new FormControl<DocumentType>(null, [Validators.required]),
+      documentNumber: new FormControl<string>(null, [Validators.required]),
+      expeditionDate: new FormControl<string>(null, [Validators.required]),
+      bornDate: new FormControl<string>(null, [Validators.required]),
+      gender: new FormControl<Gender>(null, [Validators.required]),
+      confirmEmail: new FormControl<string>(null, [
+        Validators.required,
+        this.confirmEmailValidator.bind(this),
+      ]),
+      confirmPassword: new FormControl<string>(null, [
+        Validators.required,
+        Validators.maxLength(4),
+        this.confirmPasswordValidator.bind(this),
+      ]),
     });
   }
 
@@ -43,9 +84,24 @@ export class SignUpStepTwoComponent implements OnInit {
     return this.genderEntityService.entities$;
   }
 
+  confirmPasswordValidator(control) {
+    return this.validatorsService.confirmPasswordValidator(
+      control,
+      this.form?.get("password")?.value
+    );
+  }
+  confirmEmailValidator(control) {
+    return this.validatorsService.confirmEmailValidator(
+      control,
+      this.form?.get("email")?.value
+    );
+  }
   ngOnInit() {
     this.documentTypeEntityService.getAll();
     this.genderEntityService.getAll();
+    this.form.valueChanges.subscribe((value) => {
+      console.log("JAJAJAJAJJA", value);
+    });
   }
   ngAfterViewInit() {
     setTimeout(() => {
@@ -60,7 +116,6 @@ export class SignUpStepTwoComponent implements OnInit {
               "AvenirLTStd-Medium";
             targetElement.firstChild.firstChild.style.color = "#AAAAAA";
             targetElement.firstChild.firstChild.style.fontSize = "1em";
-            console.log();
           }
         }
       });
@@ -69,5 +124,16 @@ export class SignUpStepTwoComponent implements OnInit {
 
   onSubmit() {
     this.next.emit();
+  }
+
+  messageError(control: string) {
+    return this.validatorsService.messageError(this.form.get(control));
+  }
+
+  tooglePassword() {
+    this.hidePassword = !this.hidePassword;
+  }
+  toogleConfirmPassword() {
+    this.hideConfirmPassword = !this.hideConfirmPassword;
   }
 }

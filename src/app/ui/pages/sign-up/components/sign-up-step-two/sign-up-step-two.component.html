@@ -12,31 +12,44 @@
   </div>
   <form class="data-form" [formGroup]="form">
     <p>Documento de identidad</p>
-    <ion-select label="Tipo de documento" label-placement="floating" fill="solid" interface="popover" #typeDoc>
-      <ion-select-option *ngFor="let type of ($documentType | async)" [value]="type.notation">
+    <ion-select formControlName="documentType" label="Tipo de documento" label-placement="floating" fill="solid"
+      interface="popover" #typeDoc>
+      <ion-select-option *ngFor="let type of ($documentType | async)" [value]="type">
         {{ type.description }}
       </ion-select-option>
     </ion-select>
-    <ion-input type="text" fill="solid" formControlName="firstName" label="Número de documento"
-      labelPlacement="floating" errorText="Texto invalido"></ion-input>
-    <ion-input type="text" fill="solid" formControlName="firstName" label="Fecha de expedición del documento"
-      labelPlacement="floating" errorText="Texto invalido"></ion-input>
-    <ion-input type="text" fill="solid" formControlName="firstName" label="Fecha de nacimiento"
-      labelPlacement="floating" errorText="Texto invalido"></ion-input>
-    <ion-select label="Genero" label-placement="floating" fill="solid" interface="popover" #typeDoc>
-      <ion-select-option *ngFor="let gender of ($gender | async)" [value]="gender.id">
+    <ion-input type="text" fill="solid" formControlName="documentNumber" label="Número de documento"
+      labelPlacement="floating" [errorText]="messageError('documentNumber')"></ion-input>
+    <ion-input type="date" fill="solid" formControlName="expeditionDate" label="Fecha de expedición del documento"
+      labelPlacement="floating" [errorText]="messageError('expeditionDate')"></ion-input>
+    <ion-input type="date" fill="solid" formControlName="bornDate" label="Fecha de nacimiento" labelPlacement="floating"
+      [errorText]="messageError('bornDate')"></ion-input>
+    <ion-select formControlName="gender" label="Genero" label-placement="floating" fill="solid" interface="popover"
+      #typeDoc>
+      <ion-select-option *ngFor="let gender of ($gender | async)" [value]="gender">
         {{ gender.description }}
       </ion-select-option>
     </ion-select>
     <p>Configura tu cuenta</p>
-    <ion-input type="email" fill="solid" formControlName="firstName" label="Correo electrónico"
-      labelPlacement="floating" errorText="Invalid email" email></ion-input>
-    <ion-input type="email" fill="solid" formControlName="firstName" label="Confirmar correo electrónico"
-      labelPlacement="floating" errorText="Invalid email" email></ion-input>
-    <ion-input type="text" fill="solid" formControlName="firstName" label="PIN de seguridad" labelPlacement="floating"
-      errorText="Texto invalido"></ion-input>
-    <ion-input type="text" fill="solid" formControlName="firstName" label="Confirmar PIN de seguridad"
-      labelPlacement="floating" errorText="Texto invalido"></ion-input>
-    <app-primary-button [title]="'SIGUIENTE'" (click)="onSubmit()"></app-primary-button>
+    <ion-input type="email" fill="solid" formControlName="email" label="Correo electrónico" labelPlacement="floating"
+      [errorText]="messageError('email')" email></ion-input>
+    <ion-input type="email" fill="solid" formControlName="confirmEmail" label="Confirmar correo electrónico"
+      labelPlacement="floating" [errorText]="messageError('confirmEmail')" email></ion-input>
+    <ion-input type="{{ hidePassword ? 'password' : 'text' }}" fill="solid" formControlName="password"
+      label="PIN de seguridad" labelPlacement="floating" maxlength="4" [errorText]="messageError('password')">
+      <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="tooglePassword()">
+        <ion-icon slot="icon-only" name="{{ hidePassword ? 'eye' : 'eye-off-outline' }}" aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-input>
+    <ion-input type="{{ hideConfirmPassword ? 'password' : 'text' }}" fill="solid" formControlName="confirmPassword"
+      label="Confirmar PIN de seguridad" maxlength="4" labelPlacement="floating"
+      [errorText]="messageError('confirmPassword')">
+      <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="toogleConfirmPassword()">
+        <ion-icon slot="icon-only" name="{{ hideConfirmPassword ? 'eye' : 'eye-off-outline' }}"
+          aria-hidden="true"></ion-icon>
+      </ion-button>
+    </ion-input>
+    <!-- <app-primary-button [title]="'SIGUIENTE'" [disabled]="!this.form.valid" (onClick)="onSubmit()"></app-primary-button> -->
+    <app-primary-button [title]="'SIGUIENTE'" (onClick)="onSubmit()"></app-primary-button>
   </form>
 </div>
