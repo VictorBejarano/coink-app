@@ -6,7 +6,7 @@ import {
 import { DocumentTypeDataService } from "./document-type-data.service";
 import { DocumentType } from "../domain/entities/document-type.model";
 /**
- * Servicio Entidad Vehiculo.
+ * Servicio Entidad Tipo de documento.
  */
 @Injectable()
 export class DocumentTypeEntityService extends EntityCollectionServiceBase<DocumentType> {

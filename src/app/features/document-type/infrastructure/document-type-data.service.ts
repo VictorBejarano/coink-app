@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 import { DocumentType } from "../domain/entities/document-type.model";
 import { GetAllDocumentTypesUsecase } from "../domain/usecases/get-all-document-types.usecase";
 /**
- * Servicio Data para Vehiculos.
+ * Servicio Data para Tipo de documento.
  */
 @Injectable()
 export class DocumentTypeDataService extends DefaultDataService<DocumentType> {
@@ -30,7 +30,10 @@ export class DocumentTypeDataService extends DefaultDataService<DocumentType> {
   ) {
     super(DocumentTypeDataService.ENTITY_NAME, http, httpUrlGenerator);
   }
-
+  /**
+   * Obtiene los tipos de documento.
+   * @returns - Observer.
+   */
   override getAll(): Observable<DocumentType[]> {
     return this.getAllDocumentTypesUsecase.execute();
   }

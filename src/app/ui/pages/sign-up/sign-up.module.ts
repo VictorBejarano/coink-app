@@ -13,6 +13,7 @@ import { StepperIndicatorComponent } from "./components/stepper-indicator/steppe
 import { SignUpStepTwoComponent } from "./components/sign-up-step-two/sign-up-step-two.component";
 import { SignUpStepThreeComponent } from "./components/sign-up-step-three/sign-up-step-three.component";
 import { DocumentTypeModule } from "src/app/features/document-type";
+import { GenderModule } from "src/app/features/gender";
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { DocumentTypeModule } from "src/app/features/document-type";
     SharedModule,
     ReactiveFormsModule,
     DocumentTypeModule,
+    GenderModule,
   ],
   declarations: [
     SignUpPage,

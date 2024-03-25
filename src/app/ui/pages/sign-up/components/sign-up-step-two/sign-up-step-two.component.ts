@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { IonSelect } from "@ionic/angular";
 import { Observable } from "rxjs";
 import { DocumentTypeEntityService, DocumentType } from "src/app/features/document-type";
+import { Gender, GenderEntityService } from "src/app/features/gender";
 
 @Component({
   selector: "app-sign-up-step-two",
@@ -26,7 +27,8 @@ export class SignUpStepTwoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private documentTypeEntityService: DocumentTypeEntityService
+    private documentTypeEntityService: DocumentTypeEntityService,
+    private genderEntityService: GenderEntityService
   ) {
     this.form = this.formBuilder.group({
       firstName: [""],
@@ -37,8 +39,13 @@ export class SignUpStepTwoComponent implements OnInit {
     return this.documentTypeEntityService.entities$;
   }
 
+  get $gender(): Observable<Gender[]> {
+    return this.genderEntityService.entities$;
+  }
+
   ngOnInit() {
     this.documentTypeEntityService.getAll();
+    this.genderEntityService.getAll();
   }
   ngAfterViewInit() {
     setTimeout(() => {

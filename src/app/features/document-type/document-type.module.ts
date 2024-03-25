@@ -29,10 +29,10 @@ import { GetAllDocumentTypesUsecase } from "./domain/usecases/get-all-document-t
 })
 export class DocumentTypeModule {
   /**
-   * Cre una instancia de MenuFeatureModule.
+   * Cre una instancia de DocumentTypeModule.
    * @param eds - Servicio definicion de entidad.
    * @param entityDataService - Servicio datos de entidad
-   * @param menuDataService - Servicio de menu.
+   * @param documentTypeDataService - Servicio de DocumentTypeDataService.
    */
   public constructor(
     private eds: EntityDefinitionService,
