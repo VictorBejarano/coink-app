@@ -12,6 +12,7 @@ import { SignUpStepOneComponent } from "./components/sign-up-step-one/sign-up-st
 import { StepperIndicatorComponent } from "./components/stepper-indicator/stepper-indicator.component";
 import { SignUpStepTwoComponent } from "./components/sign-up-step-two/sign-up-step-two.component";
 import { SignUpStepThreeComponent } from "./components/sign-up-step-three/sign-up-step-three.component";
+import { DocumentTypeModule } from "src/app/features/document-type";
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { SignUpStepThreeComponent } from "./components/sign-up-step-three/sign-u
     SignUpPageRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    DocumentTypeModule,
   ],
   declarations: [
     SignUpPage,

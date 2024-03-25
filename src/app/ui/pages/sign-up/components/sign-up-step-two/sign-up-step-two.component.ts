@@ -10,6 +10,8 @@ import {
 } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { IonSelect } from "@ionic/angular";
+import { Observable } from "rxjs";
+import { DocumentTypeEntityService, DocumentType } from "src/app/features/document-type";
 
 @Component({
   selector: "app-sign-up-step-two",
@@ -22,13 +24,22 @@ export class SignUpStepTwoComponent implements OnInit {
   @Output() next = new EventEmitter();
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private documentTypeEntityService: DocumentTypeEntityService
+  ) {
     this.form = this.formBuilder.group({
       firstName: [""],
     });
   }
 
-  ngOnInit() {}
+  get $documentType(): Observable<DocumentType[]> {
+    return this.documentTypeEntityService.entities$;
+  }
+
+  ngOnInit() {
+    this.documentTypeEntityService.getAll();
+  }
   ngAfterViewInit() {
     setTimeout(() => {
       this.viewChildren.forEach((view: any) => {

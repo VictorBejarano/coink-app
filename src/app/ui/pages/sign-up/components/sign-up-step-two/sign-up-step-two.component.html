@@ -13,9 +13,8 @@
   <form class="data-form" [formGroup]="form">
     <p>Documento de identidad</p>
     <ion-select label="Tipo de documento" label-placement="floating" fill="solid" interface="popover" #typeDoc>
-      <ion-select-option value="apple">Apple</ion-select-option>
-      <ion-select-option value="banana">Banana</ion-select-option>
-      <ion-select-option value="orange">Orange</ion-select-option>
+      <ion-select-option *ngFor="let type of ($documentType | async)" [value]="type.notation">{{ type.description
+        }}</ion-select-option>
     </ion-select>
     <ion-input type="text" fill="solid" formControlName="firstName" label="Número de documento"
       labelPlacement="floating" errorText="Texto invalido"></ion-input>
@@ -37,6 +36,6 @@
       errorText="Texto invalido"></ion-input>
     <ion-input type="text" fill="solid" formControlName="firstName" label="Confirmar PIN de seguridad"
       labelPlacement="floating" errorText="Texto invalido"></ion-input>
-      <app-primary-button [title]="'SIGUIENTE'" (click)="onSubmit()"></app-primary-button>
+    <app-primary-button [title]="'SIGUIENTE'" (click)="onSubmit()"></app-primary-button>
   </form>
 </div>
