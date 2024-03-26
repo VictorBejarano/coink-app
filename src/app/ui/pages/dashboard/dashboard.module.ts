@@ -7,7 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { DashboardPageRoutingModule } from "./dashboard-routing.module";
 
 import { DashboardPage } from "./dashboard.page";
-import { InitialModalComponent } from "./initial-modal/initial-modal.component";
+import { InitialModalComponent } from "./components/initial-modal/initial-modal.component";
 import { SharedModule } from "../../shared/shared.module";
 
 @NgModule({

@@ -15,6 +15,7 @@ import { SignUpStepThreeComponent } from "./components/sign-up-step-three/sign-u
 import { DocumentTypeModule } from "src/app/features/document-type";
 import { GenderModule } from "src/app/features/gender";
 import { ValidatorsService } from "./components/sign-up-step-two/validators.service";
+import { UserModule } from "src/app/features/user";
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { ValidatorsService } from "./components/sign-up-step-two/validators.serv
     ReactiveFormsModule,
     DocumentTypeModule,
     GenderModule,
+    UserModule,
   ],
   declarations: [
     SignUpPage,

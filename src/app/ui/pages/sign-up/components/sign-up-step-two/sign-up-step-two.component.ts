@@ -21,10 +21,10 @@ import {
   DocumentType,
 } from "src/app/features/document-type";
 import { Gender, GenderEntityService } from "src/app/features/gender";
-import { User } from "./user.model";
+import { User } from "../../../../../features/user/domain/entities/user.model";
 import { ValidatorsService } from "./validators.service";
 
-interface UserForm extends Omit<User, "phone"> {
+interface UserForm extends Omit<User, "phone" | "isValid"> {
   confirmEmail: string;
   confirmPassword: string;
 }

@@ -10,7 +10,7 @@ export const spinnerInitialState: LoaderState = {
 };
 
 export const spinnerReducer = createReducer(
-    spinnerInitialState,
+  spinnerInitialState,
   on(spinnerActions.activate, (state) => ({
     ...state,
     isActive: true,

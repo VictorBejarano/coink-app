@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
-import { InitialModalComponent } from "./initial-modal/initial-modal.component";
+import { InitialModalComponent } from "./components/initial-modal/initial-modal.component";
 
 @Component({
   selector: "app-dashboard",

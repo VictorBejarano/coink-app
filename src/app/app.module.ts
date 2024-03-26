@@ -12,6 +12,9 @@ import { environment } from "src/environments/environment";
 import { HttpClientModule } from "@angular/common/http";
 import { UiReducers } from "./ui/store/ui.reducers";
 
+/**
+ * Modulo de la aplicacion.
+ */
 @NgModule({
   declarations: [AppComponent],
   imports: [

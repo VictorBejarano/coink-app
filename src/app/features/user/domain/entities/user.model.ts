@@ -10,4 +10,5 @@ export interface User {
   expeditionDate: string;
   bornDate: string;
   gender: Gender;
+  isValid: boolean;
 }
