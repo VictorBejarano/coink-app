@@ -9,13 +9,12 @@ import {
   ViewChildren,
 } from "@angular/core";
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { AlertController, IonSelect } from "@ionic/angular";
-import { Observable } from "rxjs";
+import { IonSelect } from "@ionic/angular";
+import { Observable, Subject, takeUntil } from "rxjs";
 import {
   DocumentTypeEntityService,
   DocumentType,
@@ -23,7 +22,7 @@ import {
 import { Gender, GenderEntityService } from "src/app/features/gender";
 import { User } from "../../../../../features/user/domain/entities/user.model";
 import { ValidatorsService } from "./validators.service";
-import { userFormActions } from "src/app/ui/store/actions";
+import { spinnerActions, userFormActions } from "src/app/ui/store/actions";
 import { UiState } from "src/app/ui/store/ui.reducers";
 import { Store } from "@ngrx/store";
 
@@ -48,6 +47,7 @@ export class SignUpStepTwoComponent implements OnInit {
   form: FormGroup<UserFormControl>;
   hidePassword: boolean;
   hideConfirmPassword: boolean;
+  $destroy = new Subject<void>();
 
   constructor(
     private documentTypeEntityService: DocumentTypeEntityService,
@@ -103,9 +103,15 @@ export class SignUpStepTwoComponent implements OnInit {
   ngOnInit() {
     this.documentTypeEntityService.getAll();
     this.genderEntityService.getAll();
-    this.form.valueChanges.subscribe((value) => {
-      console.log("JAJAJAJAJJA", value);
-    });
+    this.documentTypeEntityService.loading$
+      .pipe(takeUntil(this.$destroy))
+      .subscribe((loading) => {
+        if (loading) {
+          this.store.dispatch(spinnerActions.activate());
+        } else {
+          this.store.dispatch(spinnerActions.deactivate());
+        }
+      });
   }
   ngAfterViewInit() {
     setTimeout(() => {
@@ -125,14 +131,12 @@ export class SignUpStepTwoComponent implements OnInit {
       });
     }, 100);
   }
-
   onSubmit() {
     this.store.dispatch(
       userFormActions.setUser({ user: this.form.value as User })
     );
     this.next.emit();
   }
-
   messageError(control: string) {
     return this.validatorsService.messageError(this.form.get(control));
   }
