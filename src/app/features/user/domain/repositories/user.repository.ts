@@ -1,4 +1,5 @@
 import { Observable } from "rxjs";
+import { User } from "../entities/user.model";
 /**
  * Repositorio de usuario.
  */
@@ -9,4 +10,10 @@ export abstract class UserRepository {
    * @returns - Observable.
    */
   public abstract validatePhone(phone: string): Observable<boolean>;
+  /**
+   * Enviar usuario.
+   * @param user - Usuario.
+   * @returns - Observable.
+   */
+  public abstract setUser(user: User): Observable<User>;
 }

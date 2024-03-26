@@ -23,6 +23,9 @@ import {
 import { Gender, GenderEntityService } from "src/app/features/gender";
 import { User } from "../../../../../features/user/domain/entities/user.model";
 import { ValidatorsService } from "./validators.service";
+import { userFormActions } from "src/app/ui/store/actions";
+import { UiState } from "src/app/ui/store/ui.reducers";
+import { Store } from "@ngrx/store";
 
 interface UserForm extends Omit<User, "phone" | "isValid"> {
   confirmEmail: string;
@@ -49,7 +52,8 @@ export class SignUpStepTwoComponent implements OnInit {
   constructor(
     private documentTypeEntityService: DocumentTypeEntityService,
     private genderEntityService: GenderEntityService,
-    public validatorsService: ValidatorsService
+    public validatorsService: ValidatorsService,
+    private store: Store<UiState>
   ) {
     this.hidePassword = true;
     this.hideConfirmPassword = true;
@@ -123,6 +127,9 @@ export class SignUpStepTwoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.store.dispatch(
+      userFormActions.setUser({ user: this.form.value as User })
+    );
     this.next.emit();
   }
 

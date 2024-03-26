@@ -1,9 +1,15 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
-import { switchMap, take } from "rxjs";
+import { Subject, switchMap, take, takeUntil } from "rxjs";
 import { UserEntityService } from "src/app/features/user";
-import { spinnerActions } from "src/app/ui/store/actions";
+import { spinnerActions, userFormActions } from "src/app/ui/store/actions";
 import { UiState } from "src/app/ui/store/ui.reducers";
 
 @Component({
@@ -11,9 +17,10 @@ import { UiState } from "src/app/ui/store/ui.reducers";
   templateUrl: "./sign-up-step-one.component.html",
   styleUrls: ["./sign-up-step-one.component.scss"],
 })
-export class SignUpStepOneComponent implements OnInit {
+export class SignUpStepOneComponent implements OnInit, OnDestroy {
   @Output() next = new EventEmitter();
   form: FormGroup;
+  $destroy = new Subject<void>();
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<UiState>,
@@ -32,9 +39,16 @@ export class SignUpStepOneComponent implements OnInit {
     });
   }
   ngOnInit() {
-    this.form.get("keyboard").valueChanges.subscribe((data) => {
-      this.form.get("phone").setValue(data);
-    });
+    this.form
+      .get("keyboard")
+      .valueChanges.pipe(takeUntil(this.$destroy))
+      .subscribe((data) => {
+        this.form.get("phone").setValue(data);
+      });
+  }
+  ngOnDestroy(): void {
+    this.$destroy.next();
+    this.$destroy.complete();
   }
   onSubmit() {
     this.store.dispatch(spinnerActions.activate());
@@ -44,6 +58,9 @@ export class SignUpStepOneComponent implements OnInit {
       .subscribe((isValid) => {
         if (isValid) {
           this.store.dispatch(spinnerActions.deactivate());
+          this.store.dispatch(
+            userFormActions.addPhone({ phone: this.form.get("keyboard").value })
+          );
           this.next.emit();
         }
       });

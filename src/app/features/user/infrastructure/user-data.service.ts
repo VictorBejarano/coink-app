@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { ValidatePhoneUsecase } from "../domain/usecases/validate-phone.usecase";
 import { User } from "../domain/entities/user.model";
+import { SetUserUsecase } from "../domain/usecases/set-user.usecase";
 /**
  * Servicio Data para Usuario.
  */
@@ -26,7 +27,8 @@ export class UserDataService extends DefaultDataService<User> {
   public constructor(
     http: HttpClient,
     httpUrlGenerator: HttpUrlGenerator,
-    private validatePhoneUsecase: ValidatePhoneUsecase
+    private validatePhoneUsecase: ValidatePhoneUsecase,
+    private setUserUsecase: SetUserUsecase
   ) {
     super(UserDataService.ENTITY_NAME, http, httpUrlGenerator);
   }
@@ -37,5 +39,13 @@ export class UserDataService extends DefaultDataService<User> {
    */
   validatePhone(phone: string): Observable<boolean> {
     return this.validatePhoneUsecase.execute({ phone });
+  }
+  /**
+   * Envia usuario.
+   * @param phone - Telefono.
+   * @returns - Observer.
+   */
+  override add(user: User): Observable<User> {
+    return this.setUserUsecase.execute({ user });
   }
 }

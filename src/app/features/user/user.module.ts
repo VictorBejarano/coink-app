@@ -8,6 +8,7 @@ import { UserEntityService } from "./infrastructure/user-entity.service";
 import { UserRepository } from "./domain/repositories/user.repository";
 import { UserMockDataSourceImpl } from "./data/datasource/gender-mock-datasource.service";
 import { ValidatePhoneUsecase } from "./domain/usecases/validate-phone.usecase";
+import { SetUserUsecase } from "./domain/usecases/set-user.usecase";
 
 @NgModule({
   declarations: [],
@@ -17,6 +18,7 @@ import { ValidatePhoneUsecase } from "./domain/usecases/validate-phone.usecase";
     UserDataService,
     UserEntityService,
     ValidatePhoneUsecase,
+    SetUserUsecase,
     {
       provide: UserRepository,
       useClass: UserMockDataSourceImpl,
