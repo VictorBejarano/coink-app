@@ -1,14 +1,16 @@
 div {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    img {
-        width: 10em;
-    }
-    h3 {
-        text-align: center;
-        color: var(--ion-color-secondary);
-    }
+  width: 100vw;
+  display: grid;
+  padding: 4em;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  overflow: scroll;
+  img {
+    width: 10em;
+  }
+  h3 {
+    text-align: center;
+    color: var(--ion-color-secondary);
+  }
 }

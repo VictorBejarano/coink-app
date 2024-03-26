@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Store, select } from "@ngrx/store";
-import { switchMap } from "rxjs";
+import { switchMap, take } from "rxjs";
 import { User, UserEntityService } from "src/app/features/user";
 import { spinnerActions } from "src/app/ui/store/actions";
 import { selectUserFeature } from "src/app/ui/store/selectors/user.selector";
@@ -33,6 +33,7 @@ export class SignUpStepThreeComponent implements OnInit {
     this.store
       .pipe(
         select(selectUserFeature),
+        take(1),
         switchMap((user) => {
           return this.userEntityService.add(user as User);
         })
